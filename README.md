@@ -4,6 +4,7 @@
 #Project Installation
 
 Front End Setup (Angularjs):
+
   1 - getInto the currencyConverter/web
   
   2- run this command 'bower install' to install the dependent packages.
@@ -12,6 +13,7 @@ Front End Setup (Angularjs):
   
 
 BackEnd Setup (Nodejs):
+
   1- getInto the main project directory'currencyConverter'.
   
   2- run the command 'npm install' to install the packages.
@@ -21,4 +23,5 @@ BackEnd Setup (Nodejs):
 
 
 Convert Currency.
+
     1- open browser at 'http://localhost:3000/' nad enjoy currency conversion.
