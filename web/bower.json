@@ -1,0 +1,14 @@
+{
+  "name": "currencyConverter",
+  "authors": [
+    "umarRabbani"
+  ],
+  "description": "convert your currency",
+  "main": "app.js",
+  "license": "MIT",
+  "homepage": "localhost:3000",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "bootstrap": "^3.3.7"
+  }
+}
