@@ -21,7 +21,7 @@ app.get('/getCurrencyList', function (req, res, next) {
 
 });
 
-app.get('/conversionResult', function (req, res) {
+app.get('/conversionResult', function (req, res, next) {
     request(`${baseUrl}convert?access_key=${process.env.KEY}&from=${req.query.from}&to=${req.query.to}&amount=${req.query.amount}&format=1`, function (error, response, body) {
         (!error) ?  res.send(body): next(err);
     });
