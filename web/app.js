@@ -2,7 +2,6 @@ var app = angular.module ('converterApp',[]);
 
 app.controller('mainController',function($scope,$http) {
 
-    const accessKey = 'aec40b469dc0714627910130c14d78bf'
     $scope.error  ={
         msg : 'Please fill the input box',
         value : false
@@ -10,7 +9,7 @@ app.controller('mainController',function($scope,$http) {
     $scope.result = 0;
 
     // get list of currencies
-    $http({method: 'GET', url: `http://data.fixer.io/api/latest?access_key=${accessKey}`})
+    $http({method: 'GET', url: `http://localhost:3000/getCurrencyList`})
         .then(function (data) {
                 $scope.data = data.data.rates;
                 $scope.source = (data && data.data && data.data.rates) ? Object.keys(data.data.rates) : null;
@@ -46,9 +45,9 @@ app.controller('mainController',function($scope,$http) {
     // get the amount against target and source currency
     let getTheTotalAmount  = function(){
         if ($scope.selectedSource && $scope.selectedTarget && $scope.inputValue){
-            $http({method: 'GET', url: `http://data.fixer.io/api/convert?access_key=${accessKey}&from=${$scope.selectedSource}&to=${$scope.selectedTarget}&amount=${$scope.inputValue}&format=1`})
+            $http({method: 'GET', url: `http://localhost:3000/conversionResult?from=${$scope.selectedSource}&to=${$scope.selectedTarget}&amount=${$scope.inputValue}&format=1`})
                 .then(function (data) {
-                        $scope.result = data.data.result +  ' ' + $scope.selectedTarget;
+                        $scope.result = data.data.result.toFixed(2) +  ' ' + $scope.selectedTarget;
                     },
                     function (err) {
                         console.log(err);
